@@ -18,3 +18,29 @@ export function filterFunction(arr, callback) {
   }
   return array;
 }
+
+export function findIndex(arr, callback) {
+  
+  for(let i = 0; i < arr.length; i++) {
+    if(callback(arr[i])) 
+      return i;
+  }    
+  return -1;
+}
+
+export function reduceFunction(arr, callback, initialValue) {
+  let accumulator = initialValue === undefined ? 0 : initialValue;
+
+  for(let i = 0; i < arr.length; i++) {
+    accumulator = accumulator + callback(arr[i]);
+  }
+  return accumulator;
+    
+}
+
+export function everyFunction(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if(!callback(arr[i])) return false;
+  }
+  return true;
+}
